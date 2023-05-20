@@ -1,4 +1,4 @@
-package frc.csplib.math;
+package frc.csplib.math.functions;
 
 /** A class which approximates an integrated value with respect to time. */
 public class LinearIntegral extends Integral {
@@ -32,8 +32,8 @@ public class LinearIntegral extends Integral {
      * @param v The value which is being integrated with respect to time.
      */
     @Override
-    public void update(double v) {
-        super.total += linearSum(lastV, v, super.timer.getDT());
-        lastV = v;
+    public void update(Number v) {
+        super.total += linearSum(lastV, v.doubleValue(), super.timer.getDT());
+        lastV = v.doubleValue();
     }
 }

@@ -1,9 +1,9 @@
-package frc.csplib.math;
+package frc.csplib.math.functions;
 
 import frc.csplib.CSPTimer;
 
 /** A class which approximates an integrated value with respect to time. */
-public class Integral {
+public class Integral implements Function<Number, Number> {
 
     protected double total;
     protected CSPTimer timer = new CSPTimer();
@@ -54,14 +54,15 @@ public class Integral {
      * </p>
      * @param v The value which is being integrated with respect to time.
      */
-    public void update(double v) {
-        total += riemannSum(v, timer.getDT());
+    @Override
+    public void update(Number v) {
+        total += riemannSum(v.doubleValue(), timer.getDT());
     }
 
     /**
      * @return The current value of the integral.
      */
-    public double get() {
+    public Number get() {
         return total;
     }
 

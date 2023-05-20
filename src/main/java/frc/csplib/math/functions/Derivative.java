@@ -1,10 +1,10 @@
-package frc.csplib.math;
+package frc.csplib.math.functions;
 
 import frc.csplib.CSPTimer;
 
 /** A class which solves for the rate of change in a value. */
-public class Derivative {
-    private double lastVal;
+public class Derivative implements Function<Number, Number> {
+    private double lastVal, rate;
     private CSPTimer timer;
 
     /**
@@ -26,11 +26,18 @@ public class Derivative {
     /**
      * Call this in a method that loops (such as a periodic method).
      * @param x The value who's rate of change is being solved for.
-     * @return The rate of change of the input parameter.
      */
-    public double getRate(double x) {
-        double dx = x - lastVal;
-        lastVal = x;
-        return dx / timer.getDT();
+    @Override
+    public void update(Number x) {
+        double dx = x.doubleValue() - lastVal;
+        lastVal = x.doubleValue();
+        rate = dx / timer.getDT();
+    }
+
+    /**
+     * @return The current derivative of the tracked value.
+     */
+    public Number get() {
+        return rate;
     }
 }
