@@ -2,12 +2,12 @@ package frc.csplib.math.functions;
 
 import java.util.Collection;
 
-public class FunctionGroup <T> implements Function<T,T>{
+public class Pipeline <T> implements ChainFunction<T> {
     
-    private final Collection<Function<T,T>> functions;
+    private final Collection<ChainFunction<T>> functions;
     private T value;
 
-    public FunctionGroup(Collection<Function<T,T>> functions) {
+    public Pipeline(Collection<ChainFunction<T>> functions) {
         this.functions = functions;
     }
 
