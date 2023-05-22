@@ -6,6 +6,8 @@ public interface FeedbackMotorController extends MotorController {
 
     public void setTorqueOutput(Number output);
 
+    public void setPosition(Number position);
+
     public void enableWarningTemp(Number temp);
 
     public void enableShutoffTemp(Number temp);
