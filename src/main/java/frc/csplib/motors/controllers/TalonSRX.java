@@ -1,14 +1,12 @@
 package frc.csplib.motors.controllers;
 
-import edu.wpi.first.wpilibj.DriverStation;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.Notifier;
 import edu.wpi.first.wpilibj.RobotController;
 import frc.csplib.math.functions.RateLimiter;
-import frc.csplib.motors.MotorConstants;
 import frc.csplib.motors.MotorController;
-import frc.csplib.motors.OutputMode;
 
-public class PWMSparkMax extends edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax implements MotorController {
+public class TalonSRX extends WPI_TalonSRX implements MotorController {
 
     private boolean ramping = false;
     private RateLimiter limiter;
@@ -22,8 +20,8 @@ public class PWMSparkMax extends edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax 
         super.set(output);
     });
 
-    public PWMSparkMax(int pwmChannel) {
-        super(pwmChannel);
+    public TalonSRX(int canID) {
+        super(canID);
 
         init();
     }
@@ -61,7 +59,7 @@ public class PWMSparkMax extends edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax 
 
     @Override
     public int getID() {
-        return super.getChannel();
+        return super.getDeviceID();
     }
 
     @Override

@@ -129,7 +129,8 @@ public class BrushlessCANSparkMax extends CANSparkMax implements BrushlessMotorC
         setPosition(0.0);
 
         monitor.stop();
-        monitor.startPeriodic(0.05);    }
+        monitor.startPeriodic(0.05);
+    }
 
     @Override
     public void setRampRate(Number rampRate) {

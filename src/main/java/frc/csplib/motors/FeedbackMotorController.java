@@ -2,11 +2,13 @@ package frc.csplib.motors;
 
 import frc.csplib.math.State;
 
-public interface FeedbackMotorController extends MotorController {
+public interface FeedbackMotorController extends EncodedMotorController {
 
-    public void setTorqueOutput(Number output);
+    public Number getTempC();
 
-    public void setPosition(Number position);
+    public Number getCurrent();
+
+    public Number getResistance();
 
     public void enableWarningTemp(Number temp);
 
@@ -15,14 +17,4 @@ public interface FeedbackMotorController extends MotorController {
     public void disableWarningTemp();
 
     public void disableShutoffTemp();
-
-    public Number getTempC();
-
-    public Number getTorqueOutput();
-
-    public Number getCurrent();
-
-    public State getState();
-
-    public Number getResistance();
 }
