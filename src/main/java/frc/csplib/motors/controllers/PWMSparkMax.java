@@ -50,7 +50,7 @@ public class PWMSparkMax extends edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax 
 
     @Override
     public void set(Number percent) {
-        output = percent.doubleValue()
+        output = percent.doubleValue();
     }
 
     @Override
